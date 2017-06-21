@@ -1,8 +1,7 @@
 CXX= g++
 EXEC= Cameleon
 
-CXXFLAGS := $(shell pkg-config --cflags ibex) -std=c++11
-#-O0 -g -pg -Wall -frounding-math 
+CXXFLAGS := $(shell pkg-config --cflags ibex) -std=c++11 -Wall 
 LIBS	 := $(shell pkg-config --libs  ibex)
 #LIBDIR	 := $(shell pkg-config --libdir  ibex)
 
