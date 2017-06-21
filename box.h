@@ -3,7 +3,7 @@
 #ifndef __BOX__
 #define __BOX__
 
-#include "vibes.h";
+#include "vibes.h"
 #include "interval.h"
 
 class box

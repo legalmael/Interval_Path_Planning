@@ -607,7 +607,7 @@ void Cdist(interval& R, interval& X1, interval& Y1, interval& X2, interval& Y2)
 	static CtcHC4 ctc(C);
 	IntervalVector P(5);
 	P[0]=X1; P[1]=Y1; P[2]=X2; P[3]=Y2; P[4]=R;
-	try {ctc.contract(P);} catch(EmptyBoxException) {X1=interval::EMPTY_SET;Y1=X1; X2=X1; Y2=X1; R=X1; return;}
+	try {ctc.contract(P);} catch(int EmptyBoxException) {X1=interval::EMPTY_SET;Y1=X1; X2=X1; Y2=X1; R=X1; return;}
 	X1=P[0]; Y1=P[1]; X2=P[2]; Y2=P[3]; R=P[4];
 	return;
 }
@@ -734,7 +734,7 @@ void CinRing(interval& X, interval& Y, double cx, double cy, interval R)
 	static NumConstraint C(x,y,r,vcx,vcy, pow(x-vcx,2)+pow(y-vcy,2)=pow(r,2));
 	static CtcHC4 ctc(C);
 	IntervalVector P(5); P[0]=X; P[1]=Y; P[2]=R; P[3]=cx; P[4]=cy;
-	try {ctc.contract(P);} catch(EmptyBoxException) {X=interval::EMPTY_SET;Y=X; return;}
+	try {ctc.contract(P);} catch(int EmptyBoxException) {X=interval::EMPTY_SET;Y=X; return;}
 	X=P[0]; Y=P[1];
 	return;
 }
@@ -791,7 +791,7 @@ void CinCircle(interval& X, interval& Y, double cx, double cy, double r)
         static NumConstraint C(x,y,vr,vcx,vcy, pow(x-vcx,2)+pow(y-vcy,2)=pow(vr,2));
         static CtcHC4 ctc(C);
         IntervalVector P(5); P[0]=X; P[1]=Y; P[2]=r; P[3]=cx; P[4]=cy;
-        try {ctc.contract(P);} catch(EmptyBoxException) {X=interval::EMPTY_SET;Y=X; return;}
+        try {ctc.contract(P);} catch(int EmptyBoxException) {X=interval::EMPTY_SET;Y=X; return;}
         X=P[0]; Y=P[1];
         return;
 }
